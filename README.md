@@ -1,8 +1,4 @@
-[![Unit Tests - Jest](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/unit-tests.yml)
-
-[![Playwright tests](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/playwright.yml/badge.svg)](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/playwright.yml)
-
-[![ESLinter](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/linter.yml/badge.svg)](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/linter.yml)
+[![Unit Tests - Jest](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/unit-tests.yml) [![Playwright tests](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/playwright.yml/badge.svg)](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/playwright.yml) [![ESLinter](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/linter.yml/badge.svg)](https://github.com/emanuelcoelho1986/st-new-fe/actions/workflows/linter.yml)
 
 # st-new-fe Project
 
