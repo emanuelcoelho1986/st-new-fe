@@ -11,11 +11,14 @@ export const INPUT_DEFAULT_OPTION: Option = { label: INPUT_DEFAULT_VALUE };
 interface DropdownSelectProps {
   defaultOption?: Option;
   options: Option[];
+  // by default this is searchable
+  isSearchable?: boolean;
 }
 
 const DropdownSelect: FC<DropdownSelectProps> = ({
   defaultOption = INPUT_DEFAULT_OPTION,
   options,
+  isSearchable = true,
 }) => {
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
@@ -46,7 +49,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({
         <DropdownOptions
           options={options}
           didSelectOption={didSelecAnOption}
-          isSearchable
+          isSearchable={isSearchable}
           selectedOption={selectedOption}
           closeOptions={() => setIsOptionsVisible(false)}
         />

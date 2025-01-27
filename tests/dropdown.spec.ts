@@ -91,5 +91,27 @@ test.describe('DropdownSelector', () => {
 
     expect(page.getByTestId(LIST_NAME_TESTID)).not.toBeVisible();
   });
+
+  test('select first element when searchable should not be available', async ({ page }) => {
+    await page.goto('/not-searchable')
+    await expect(page.getByTestId(INPUT_TEST_ID)).toBeVisible();
+    await expect(page.getByTestId(INPUT_TEST_ID)).toHaveValue(INPUT_DEFAULT_VALUE);
+
+    // Select an option from dropdown
+    const dropdownSelector = page.getByTestId(INPUT_TEST_ID);
+    await dropdownSelector.click();
+
+    expect(page.getByTestId(LIST_NAME_TESTID)).toBeVisible();
+    expect(page.getByTestId(INPUT_FILTER_TESTID)).not.toBeVisible();
+
+    const optionsListElement = page.getByTestId(LIST_NAME_TESTID);
+    const optionsElements = optionsListElement.locator('li');
+
+    expect(await optionsElements.count()).toBe(5); // 5 colors
+    
+    (await optionsElements.all()).at(0)?.click();
+
+    await expect(page.getByTestId(INPUT_TEST_ID)).toHaveValue('Apple');
+  });
 });
 
