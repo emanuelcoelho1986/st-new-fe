@@ -78,7 +78,7 @@ The merge to `master/main` only happens if everything is green from the actions 
 
 There is a pull request merged into `master/main` where we can check this approach, for example:
 
-https://github.com/emanuelcoelho1986/st-new-fe/pull/4
+[PR Example here](https://github.com/emanuelcoelho1986/st-new-fe/pull/4)
 
 ## Missing features I would like to have
 
