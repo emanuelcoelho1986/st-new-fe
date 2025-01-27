@@ -26,7 +26,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
 
-  const handleInputOnClick = (e: React.MouseEvent) => {
+  const handleInputOnClick = () => {
     setIsOptionsVisible(!isOptionsVisible);
   };
 
