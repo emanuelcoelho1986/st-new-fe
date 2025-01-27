@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main, master ]
 jobs:
-  test:
+  unit-tests:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
@@ -13,11 +13,14 @@ jobs:
     - uses: actions/setup-node@v4
       with:
          node-version-file: '.nvmrc'
+    
     - name: Setup pnpm
       uses: pnpm/action-setup@v4.0.0
       with:
         version: 10
+    
     - name: Install dependencies
       run: pnpm install
+
     - name: Run Unit tests
       run: pnpm run test:unit
