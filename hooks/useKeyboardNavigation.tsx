@@ -2,7 +2,8 @@ import { useState } from "react";
 
 const useKeyboardNavigation = (
   maxIndex: number,
-  onSelect: (atIndex: number) => void
+  onSelect: (atIndex: number) => void,
+  onEscapeKey?: () => void
 ) => {
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
@@ -17,6 +18,7 @@ const useKeyboardNavigation = (
   const handleKeyDown = (e: React.KeyboardEvent) => {
     e.preventDefault();
 
+    // Switch case instead of all this bunch of ifs??
     if (e.key === "ArrowDown" && canHightlightNext(highlightedIndex + 1)) {
       setHighlightedIndex(highlightedIndex + 1);
     } else if (
@@ -26,6 +28,9 @@ const useKeyboardNavigation = (
       setHighlightedIndex(highlightedIndex - 1);
     } else if (e.key === "Enter") {
       onSelect(highlightedIndex);
+    } else if (e.key === "Escape") {
+      setHighlightedIndex(-1);
+      onEscapeKey?.();
     }
   };
 

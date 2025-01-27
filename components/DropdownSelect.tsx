@@ -10,12 +10,12 @@ export const INPUT_DEFAULT_OPTION: Option = { label: INPUT_DEFAULT_VALUE };
 
 interface DropdownSelectProps {
   defaultOption?: Option;
-  options: Option[]; 
+  options: Option[];
 }
 
 const DropdownSelect: FC<DropdownSelectProps> = ({
   defaultOption = INPUT_DEFAULT_OPTION,
-  options
+  options,
 }) => {
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
@@ -27,12 +27,10 @@ const DropdownSelect: FC<DropdownSelectProps> = ({
   const didSelecAnOption = (option: Option) => {
     setSelectedOption(option);
     setIsOptionsVisible(false);
-  }
+  };
 
   return (
-    <div 
-      className="w-full relative" 
-    > 
+    <div className="w-full relative">
       <input
         readOnly
         aria-readonly
@@ -44,7 +42,15 @@ const DropdownSelect: FC<DropdownSelectProps> = ({
         data-testid={INPUT_TEST_ID}
       />
 
-      {isOptionsVisible && <DropdownOptions options={options} didSelectOption={didSelecAnOption} isSearchable selectedOption={selectedOption} />}
+      {isOptionsVisible && (
+        <DropdownOptions
+          options={options}
+          didSelectOption={didSelecAnOption}
+          isSearchable
+          selectedOption={selectedOption}
+          closeOptions={() => setIsOptionsVisible(false)}
+        />
+      )}
     </div>
   );
 };

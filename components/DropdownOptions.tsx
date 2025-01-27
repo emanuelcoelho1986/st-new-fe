@@ -16,6 +16,7 @@ export type DropdownOptionsProps = {
   options: Option[];
   didSelectOption: (withValue: Option) => void;
   selectedOption?: Option;
+  closeOptions?: () => void;
   isSearchable?: boolean;
 };
 
@@ -23,6 +24,7 @@ const DropdownOptions: FC<DropdownOptionsProps> = ({
   options,
   isSearchable = true,
   didSelectOption = () => {},
+  closeOptions = () => {},
   selectedOption,
 }) => {
   const [filteredOptions, setFilteredOptions] = useState(options);
@@ -31,10 +33,10 @@ const DropdownOptions: FC<DropdownOptionsProps> = ({
     filteredOptions.length,
     (atIndex: number) => {
       if (atIndex > -1) {
-        console.log("Will select: ", atIndex);
         didSelectOption(filteredOptions[atIndex]);
       }
-    }
+    },
+    closeOptions
   );
 
   const handleSearchFor = (e: React.ChangeEvent<HTMLInputElement>) => {

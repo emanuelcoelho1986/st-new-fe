@@ -56,4 +56,29 @@ describe.only("useKeyboardNavigation", () => {
 
     expect(result.current.highlightedIndex).toBe(max-1); // -1 because we deal with lengths
   });
+
+  it("should return highlightedIndex=-1, when we press Escape key", () => {
+    const mockArrowDownEvent = {
+        key: 'ArrowDown',
+        preventDefault: mockPreventDefault
+    } as unknown as React.KeyboardEvent;
+
+    const mockEscapeEvent = {
+        key: 'Escape',
+        preventDefault: mockPreventDefault
+    } as unknown as React.KeyboardEvent;
+
+    const max = 2;
+    const { result } = renderHook(() => useKeyboardNavigation(max, mockOnSelect));
+
+    for (let index = 0; index < max + 1; index++) { // + 1 to for a few loops to make sure we always get the max
+        act(() => result.current.handleKeyDown(mockArrowDownEvent));
+    }
+
+    expect(result.current.highlightedIndex).toBe(max-1); // -1 because we deal with lengths
+
+    act(() => result.current.handleKeyDown(mockEscapeEvent));
+
+    expect(result.current.highlightedIndex).toBe(-1); // reset to -1
+  });
 });
