@@ -13,8 +13,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
          node-version-file: '.nvmrc'
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v4.0.0
+    - name: Enable pnpm from corepack
+      run: corepack use pnpm@latest-10
     - name: Install dependencies
       run: pnpm install
     - name: Run Unit tests
