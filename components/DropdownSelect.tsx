@@ -1,13 +1,17 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useState } from 'react';
+
+// These will be handy when writting the tests
+export const INPUT_TEST_ID = 'dropdown-select';
+export const INPUT_DEFAULT_VALUE = 'Select a color';
 
 interface DropdownSelectProps {
-  defaultLabel: string;
+  defaultLabel?: string;
 }
 
 const DropdownSelect: FC<DropdownSelectProps> = ({
-  defaultLabel = "Select a color",
+  defaultLabel = INPUT_DEFAULT_VALUE,
 }) => {
   const [selectedValue, setSelectedValue] = useState(defaultLabel);
   
@@ -28,6 +32,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({
         onChange={() => {}}
         onClick={handleInputOnClick}
         className="border rounded p-2 w-full text-black caret-transparent"
+        data-testid={INPUT_TEST_ID}
       />
     </div>
   );
