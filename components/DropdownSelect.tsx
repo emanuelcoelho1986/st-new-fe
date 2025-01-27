@@ -6,22 +6,16 @@ import DropdownOptions, { Option } from "./DropdownOptions";
 // These will be handy when writting the tests
 export const INPUT_TEST_ID = "dropdown-select";
 export const INPUT_DEFAULT_VALUE = "Select a color";
-export const INPUT_DEFAULT_OPTION: Option = { label: INPUT_DEFAULT_VALUE } 
-
-const options: Option[] = [
-  { value: "apple", label: "Apple" },
-  { value: "banana", label: "Banana" },
-  { value: "cherry", label: "Cherry" },
-  { value: "date", label: "Date" },
-  { value: "elderberry", label: "Elderberry" },
-];
+export const INPUT_DEFAULT_OPTION: Option = { label: INPUT_DEFAULT_VALUE };
 
 interface DropdownSelectProps {
   defaultOption?: Option;
+  options: Option[]; 
 }
 
 const DropdownSelect: FC<DropdownSelectProps> = ({
   defaultOption = INPUT_DEFAULT_OPTION,
+  options
 }) => {
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
