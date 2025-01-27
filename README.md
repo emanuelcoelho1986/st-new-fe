@@ -80,6 +80,8 @@ There is a pull request merged into `master/main` where we can check this approa
 
 [PR Example here](https://github.com/emanuelcoelho1986/st-new-fe/pull/4)
 
+When merging a pull request, I usually use `squash and commit`. This way I have only one merge message with a searchable description of the text of all commits done.
+
 ## Missing features I would like to have
 
 - Click outside to close the Options
