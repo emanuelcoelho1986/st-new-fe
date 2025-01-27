@@ -85,7 +85,7 @@ test.describe('DropdownSelector', () => {
     const dropdownSelector = page.getByTestId(INPUT_TEST_ID);
     await dropdownSelector.click();
 
-    const optionsListElement = page.getByTestId(LIST_NAME_TESTID);
+    const optionsListElement = await page.getByTestId(LIST_NAME_TESTID);
 
     await optionsListElement.press('Escape');
 

@@ -4,7 +4,7 @@ on:
 jobs:
   e2e-tests:
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
-    timeout-minutes: 10
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -16,8 +16,8 @@ jobs:
       with:
         version: 10
     - name: Install dependencies
-      run: pnpm install && npx playwright install --with-deps
+      run: pnpm install && pnpm exec playwright install --with-deps
     - name: Run tests
-      run: npx playwright test
+      run: pnpm exec playwright test
       env:
         PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.environment_url }}
