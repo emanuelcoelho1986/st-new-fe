@@ -7,11 +7,11 @@ const useKeyboardNavigation = (
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
   const canHighlightPrevious = (nextHighlighted: number) => {
-    return nextHighlighted > -1;
+    return nextHighlighted >= -1;
   };
 
   const canHightlightNext = (nextHighlighted: number) => {
-    return nextHighlighted <= maxIndex;
+    return nextHighlighted < maxIndex;
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
